@@ -6,14 +6,9 @@
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand(href='/') Skile
+      a.navbar-brand(href='/') Allnighter
     .collapse.navbar-collapse.nav-fixed-top.navbar-default
       ul.nav.navbar-nav
-        li(class=title=='Home'?'active':undefined)
-          a(href='/') Home
-        if user
-            li(class=title=='Profile'?'active':undefined)
-              a(href='/profile') Profile
         li(class=title=='Categories'?'active':undefined)
           a(href='/categories') Categories
         li(class=title=='Links'?'active':undefined)
@@ -41,6 +36,8 @@
           li(class=title=='Create Account'?'active':undefined)
             a(href='/signup') Create Account
         else
+          li
+            a(href="/cart") My Cart
           li.dropdown(class=title=='Account Management'?'active':undefined)
             a.dropdown-toggle(href='#', data-toggle='dropdown')
               if user.profile.picture
@@ -51,12 +48,5 @@
             ul.dropdown-menu.downdrop-menu
               li
                 a(href='/account') My Account
-              li.divider.downdrop-divider
-              li
-                a(href='/my-links') My Links
-              li.divider.downdrop-divider
-              li
-                a(href='/my-stats') My Stats
-              li.divider.downdrop-divider
               li
                 a(href='/logout') Logout

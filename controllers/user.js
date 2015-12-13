@@ -170,7 +170,9 @@ exports.postSignup = function(req, res, next) {
   var user = new User({
     email: req.body.email,
     fullName: req.body.fullName,
-    password: req.body.password
+    password: req.body.password,
+    address: req.body.address,
+    phone: req.body.phone
   });
 
   User.findOne({ email: req.body.email }, function(err, existingUser) {
@@ -207,6 +209,8 @@ exports.postUpdateProfile = function(req, res, next) {
     if (err) return next(err);
     user.email = req.body.email || '';
     user.fullName = req.body.name || '';
+    user.address = req.body.address || '';
+    user.phone = req.body.phone || '';
     user.profile.gender = req.body.gender || '';
     user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';

@@ -7,12 +7,7 @@ var slug = require('slug');
 var categorySchema = new Schema({
   title: { type: String, unique: true},
   description: String,
-  _parentId: ObjectId,
-  _creator: { type: ObjectId, required: true},
-  _creatorName : { type: String, required: true},
-  _parentCatTitle: String,
-  url: String,
-  addedOn: { type: Date, default: Date.Now }
+  url: String
 });
 
 categorySchema.index({ title : 2, description : 1});

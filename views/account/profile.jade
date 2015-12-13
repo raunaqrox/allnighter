@@ -15,6 +15,14 @@ block content
       .col-sm-7
         input.form-control(type='text', name='name', id='name', value='#{user.fullName}')
     .form-group.row
+      label.col-sm-3.control-label(for='address') Address
+      .col-sm-7
+        input.form-control(type='text', name='address', id='address', value='#{user.address}')
+    .form-group.row
+      label.col-sm-3.control-label(for='phone') Phone Number
+      .col-sm-7
+        input.form-control(type='text', name='phone', id='phone', value='#{user.phone}')
+    .form-group.row
       label.col-sm-3.control-label(for='gender') Gender
       .col-sm-4
         label.radio.col-sm-4
@@ -77,11 +85,6 @@ block content
   .form-horizontal
     .form-group.row
       .col-sm-offset-3.col-sm-4
-        if user.instagram
-          p: a.text-danger(href='/account/unlink/instagram') Unlink your Instagram account
-        else
-          p: a(href='/auth/instagram') Link your Instagram account
-      .col-sm-offset-3.col-sm-4
         if user.google
           p: a.text-danger(href='/account/unlink/google') Unlink your Google account
         else
@@ -95,14 +98,4 @@ block content
         if user.twitter
           p: a.text-danger(href='/account/unlink/twitter') Unlink your Twitter account
         else
-          p: a(href='/auth/twitter') Link your Twitter account
-      .col-sm-offset-3.col-sm-4
-        if user.github
-          p: a.text-danger(href='/account/unlink/github') Unlink your GitHub account
-        else
-          p: a(href='/auth/github') Link your GitHub account
-      .col-sm-offset-3.col-sm-4
-        if user.linkedin
-          p: a.text-danger(href='/account/unlink/linkedin') Unlink your LinkedIn account
-        else
-          p: a(href='/auth/linkedin') Link your LinkedIn account
+          p: a(href='/auth/twitter') Link your Twitter accountt

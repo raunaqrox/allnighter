@@ -29,17 +29,9 @@ var sass = require('node-sass-middleware');
 var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
-var addLinkController = require('./controllers/addLink');
 var addCategoryController = require('./controllers/addCategory');
-var categoryController = require('./controllers/category');
-var linkController = require('./controllers/link');
-var pathController = require('./controllers/path');
-var addPathController = require('./controllers/addPath');
-var apiController = require('./controllers/api');
-var typeController = require('./controllers/type');
-var commentController = require('./controllers/comment');
-var ratingController = require('./controllers/rating');
-var statsController = require('./controllers/stats');
+var addLinkController = require('./controllers/addLink');
+var cartController = require('./controllers/cart');
 
 /**
  * API keys and Passport configuration.
@@ -135,47 +127,11 @@ app.post('/account/profile', passportConf.isAuthenticated, userController.postUp
 app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
-app.get('/profile', passportConf.isAuthenticated, userController.getMyProfile);
-
-app.get('/profile/:slug', userController.getUserProfile);
-
-app.get('/add-link', passportConf.isAuthenticated, addLinkController.getAddLink);
-app.post('/add-link', passportConf.isAuthenticated, addLinkController.postLink);
-
+app.get('/cart', passportConf.isAuthenticated, cartController.showCart);
 app.get('/add-category', passportConf.isAuthenticated, addCategoryController.getAddCategory);
 app.post('/add-category', passportConf.isAuthenticated, addCategoryController.postCategory);
-
-app.get('/add-path', passportConf.isAuthenticated, addPathController.getAddPath);
-app.post('/add-path', passportConf.isAuthenticated, addPathController.postAddPath);
-app.get('/path/:id/:slug', pathController.getPath);
-
-app.get('/category/:slug', categoryController.getCategory);
-app.get('/category/child/:slug', categoryController.getCatChild);
-
-app.get('/categories', categoryController.getCategories);
-app.post('/categories', categoryController.searchCategory);
-app.get('/links', linkController.getLinks);
-app.post('/links', linkController.searchLinks);
-app.post('/update-link', passportConf.isAuthenticated, linkController.updateLink);
-
-app.get('/paths', pathController.getPaths);
-
-app.get('/api/category-search', apiController.categorySearch);
-app.get('/api/link-search', apiController.linkSearch);
-app.get('/api/type-search', passportConf.isAuthenticated, apiController.typeSearch);
-// ajax
-app.get('/add-type', passportConf.isAuthenticated, typeController.addType);
-
-app.post('/add-comment', passportConf.isAuthenticated, commentController.postComment);
-
-app.post('/add-rating', passportConf.isAuthenticated, ratingController.postRating);
-
-app.get('/my-links', passportConf.isAuthenticated, linkController.myLinks);
-
-app.get('/my-stats', passportConf.isAuthenticated, statsController.myStats);
-
-app.post('/follow', passportConf.isAuthenticated, userController.follow);
-app.post('/unfollow', passportConf.isAuthenticated, userController.unfollow);
+app.get('/add-link', passportConf.isAuthenticated, addLinkController.getAddLink);
+app.post('/add-link', passportConf.isAuthenticated, addLinkController.postLink);
 
 /**
  * OAuth authentication routes. (Sign in)
@@ -197,12 +153,6 @@ app.get('/auth/twitter', passport.authenticate('twitter'));
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), function(req, res) {
   res.redirect(req.session.returnTo || '/');
 });
-app.get('/auth/linkedin', passport.authenticate('linkedin', { state: 'SOME STATE' }));
-app.get('/auth/linkedin/callback', passport.authenticate('linkedin', { failureRedirect: '/login' }), function(req, res) {
-  res.redirect(req.session.returnTo || '/');
-});
-
-
 /**
  * Error Handler.
  */
