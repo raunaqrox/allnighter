@@ -1,36 +1,16 @@
 extends layout
 block content
-  br
-  div.row
-    div.col-md-8.col-md-offset-2.slogan.bs-component
-      h4.text-center Learn how to learn, this is where learning begins!
-  div.row.padded
-    .categories.list-group-item.col-md-10.col-md-offset-1
-      h5 Latest Categories
-      if categories
-        each category in categories
-          div.col-md-4
-            a(href="/category/"+category.url) 
-              button.btn.btn-default.btn-sm
-                =category.title      
-        a(class="pull-right", href="/categories") More
-  div.row
-    .links.list-group-item.col-md-10.col-md-offset-1
-      h5 Latest Links
-      if links
-        each link in links
-          div.col-md-4
-            a(href=link.url, target="_blank") 
-              button.btn.btn-danger.btn-sm
-                =link.title
-        a(class="pull-right", href="/links") More
-  div.row
-    .paths.list-group-item.col-md-10.col-md-offset-1
-      h5 Latest Paths
-      if paths
-        each path in paths
-          div.col-md-4
-            a(href="/path/"+path.url) 
-              button.btn.btn-default.btn-sm
-                =path.title
-        a(class="pull-right", href="/paths") More
+  .container-fluid
+    .items.col-md-7.col-md-offset-1.col-xs-7.col-xs-offset-1
+      each cat in categories
+        .well.row
+          legend
+            =cat.title
+          each item in items
+            if item._category == cat.title
+              .grid-card
+                .col-lg-3.col-md-3.col-xs-6.thumbnail.padded
+                  img(src=item.imageUrl)
+                  .caption
+                    legend.name
+                      =item.title

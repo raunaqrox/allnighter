@@ -11,28 +11,15 @@ block content
     .form-group
       label.col-sm-3.control-label(for='link') Link
       .col-sm-7
-        input.form-control(type='text', name='url', id='link', placeholder='Link', required)
+        input.form-control(type='text', name='imageUrl', id='link', placeholder='Link', required)
     .form-group
       label.col-sm-3.control-label(for='Category') Category
       .col-sm-7
-        input.form-control(type='text', name='category', class='category-search', placeholder='Category', required)    
-    .form-group.row
-      label.col-sm-3.control-label(for='Type') Type
-      .col-sm-2
-        select(id="type", name="type", required)
-          each type in types
-            option(value=type._id) #{type.title}
-          option(value="new", id="newTypeOption") Add new Type
-      .col-sm-4.newType
-        .row
-        .col-md-8
-          input.form-control(name='newType', class='type-search', placeholder='new type', type='text')
-        .col-md-4
-          button.btn.btn-danger.add-type(type="button") Add
-    .form-group.row
-      label.col-sm-3.control-label(for='tags') Tags
+        input.form-control(type='text', name='category', class='category-search', placeholder='Category', required)
+    .form-group
+      label.col-sm-3.control-label(for='Category') Price
       .col-sm-7
-        input.form-control(type='text', name='tags', id='tags', placeholder='Tags')
+        input.form-control(type='text', name='price', class='category-search', placeholder='Category', required)
     .form-group.row
       label.col-sm-3.control-label(for='description') Description
       .col-sm-7
