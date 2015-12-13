@@ -1,0 +1,19 @@
+extends layout
+block content
+	if profileUser
+		.row
+			.col-md-8
+				if(profileUser.profile.picture)
+					img(src=profileUser.profile.picture)
+				else
+					img(src="#{profileUser.gravatar()}")
+				h3
+					=profileUser.fullName
+				p
+					=profileUser.email
+				if user
+					if user.id!=profileUser.id
+						- if (profileUser.followers.indexOf(user.id) !== -1)
+							button.btn.btn-danger#following(data-id=profileUser.id) Following
+						- else
+							button.btn.btn-danger#follow(data-id=profileUser.id) Follow

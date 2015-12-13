@@ -1,0 +1,16 @@
+extends layout
+block content
+	.col-md-10.col-md-offset-1
+		.row.list-group-item
+			.col-md-6.col-md-offset-3
+				.form-group.col-md-9
+					input(placeholder="search", type="text", class="form-control")
+				button(class="btn btn-default btn-danger col-md-3 search-button") Submit
+		.row
+		if paths
+			each path,i in paths
+				canvas.paths-canvas(id=i, width="600", height="200")
+				br
+				a.btn.btn-danger(href="/path/"+path.url) #{path.title}
+			script(src='/js/lib/paper-core.min.js', type="text/javascript")
+			script(src='/js/displayPath.js', type="text/javascript", onload="decodeEncoded(#{JSON.stringify(paths)})")

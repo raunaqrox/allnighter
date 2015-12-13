@@ -1,0 +1,21 @@
+extends layout
+block content
+  .page-header.col-md-10.col-md-offset-1
+    h3 Add Category
+  form.form-horizontal(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row
+      label.col-sm-3.control-label(for='title') Title
+      .col-sm-7
+        input.form-control(type='text', name='title', id='title', placeholder='Title')
+    .form-group.row
+      label.col-sm-3.control-label(for='parentCatTitle') Parent Category
+      .col-sm-7
+        input.form-control(type='text', class='tt-input category-search', autocomplete="off", spellcheck="false", dir="auto"  ,name='parentCatTitle', id='parentCatTitle', value="None",placeholder='Parent Category(Default None)')    
+    .form-group.row
+      label.col-sm-3.control-label(for='description') Subtitle
+      .col-sm-7
+        textarea.form-control(type='text', name='description', id='description', rows="2",placeholder='Subtitle')
+    .form-group.row
+      .col-sm-offset-3.col-sm-7
+        button.col-sm-3.btn.btn-primary(type='submit') Add Category

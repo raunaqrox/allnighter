@@ -1,0 +1,19 @@
+extends layout
+block content
+	.row
+		.col-md-8
+			if(user.profile.picture)
+				img(src=user.profile.picture)
+			else
+				img(src="#{user.gravatar()}")
+			h3
+				=user.fullName
+			-var sum = 0
+			-var count = 0
+			each stat in stats
+				- sum += stat.ratingSum
+				- count += stat.ratingCount
+			- var avg = sum/count
+			h4 Rating Count #{count}
+			h4 Rating Sum #{sum}
+			h2 Avg Ratings #{avg}

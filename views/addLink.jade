@@ -1,0 +1,42 @@
+extends layout
+block content
+  .page-header.col-md-offset-1.col-md-10
+    h3 Add Link
+  form.form-horizontal(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label.col-sm-3.control-label(for='title') Title
+      .col-sm-7
+        input.form-control(type='text', name='title', id='title', placeholder='title', autofocus=true, required)
+    .form-group
+      label.col-sm-3.control-label(for='link') Link
+      .col-sm-7
+        input.form-control(type='text', name='url', id='link', placeholder='Link', required)
+    .form-group
+      label.col-sm-3.control-label(for='Category') Category
+      .col-sm-7
+        input.form-control(type='text', name='category', class='category-search', placeholder='Category', required)    
+    .form-group.row
+      label.col-sm-3.control-label(for='Type') Type
+      .col-sm-2
+        select(id="type", name="type", required)
+          each type in types
+            option(value=type._id) #{type.title}
+          option(value="new", id="newTypeOption") Add new Type
+      .col-sm-4.newType
+        .row
+        .col-md-8
+          input.form-control(name='newType', class='type-search', placeholder='new type', type='text')
+        .col-md-4
+          button.btn.btn-danger.add-type(type="button") Add
+    .form-group.row
+      label.col-sm-3.control-label(for='tags') Tags
+      .col-sm-7
+        input.form-control(type='text', name='tags', id='tags', placeholder='Tags')
+    .form-group.row
+      label.col-sm-3.control-label(for='description') Description
+      .col-sm-7
+        textarea.form-control(type='text', name='description', id='description', rows="4",placeholder='Description')
+    .form-group.row
+      .col-sm-offset-3.col-sm-7
+        button.col-sm-3.btn.btn-primary(type='submit') Add Link

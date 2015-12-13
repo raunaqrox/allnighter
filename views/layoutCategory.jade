@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='csrf-token', content=_csrf)
+    title #{title}
+    link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='/css/flash_pace.css')
+    link(rel='stylesheet', href='/css/medium/medium-editor.min.css')
+    link(rel='stylesheet', href='/css/medium/themes/tim.min.css')
+    link(rel='stylesheet', href='/css/rating-themes/bars-square.css')
+    //- link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Oxygen')
+  body
+    include partials/categoryHeader
+
+    .container.no-margin
+      .col-md-12
+        include partials/flash
+        block content
+
+    include partials/footer
+
+    script(src='/js/lib/jquery.min.js')
+    script(src='/js/lib/bootstrap.min.js')
+    script(src='/js/lib/trianglify.min.js')
+    script(src='/js/lib/typeahead.bundle.min.js')
+    script(src='/js/lib/medium-editor.min.js')
+    script(src='/js/lib/jquery.barrating.min.js')
+    script(src='/js/ajax.js')
+    script(src='/js/category-search.js')
+    script(src='/js/search.js')
+    script(src='/js/addType.js')
+    script(src='/js/comment.js')
+    script(src='/js/ratings.js')
+    script(src='/js/lib/pace.min.js')
+    script(src='/js/navScroll.js')
+    
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-XXXXX-X', 'auto');
+      ga('send', 'pageview');
+      //
+         //- script.
+         //- var categoryPattern = Trianglify({
+         //-   width: 70,
+         //-   height: 70,
+         //-   cell_size: 20
+         //- });
+         //- $('.catTitle').prepend(categoryPattern.canvas);
+         //- var slogan = Trianglify({
+         //-   width: 500,
+         //-   height: 300,
+         //-   cell_size: 30
+         //- });
+         //- slogan.canvas.width = slogan.canvas.offsetWidth;
+         //- slogan.canvas.height = slogan.canvas.offsetHeight;
+         //-  $('.slogan').prepend(slogan.canvas);

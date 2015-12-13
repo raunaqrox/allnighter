@@ -1,0 +1,47 @@
+//color scheme
+// -------------------
+
+// blue
+$gradient-highlight: #4f95da;
+$gradient-midtone: #41629b;
+$gradient-shadow: #2e3265;
+
+// red
+// $gradient-shadow: #650e0c;
+// $gradient-midtone: #a02420;
+// $gradient-midtone: #e51c23;
+// $gradient-highlight: red;
+
+// green
+// $gradient-highlight: #03f98e;
+// $gradient-midtone: #009857;
+// $gradient-shadow: #015933;
+
+// text default
+$default-color: #ddd;
+$font-color: darken($default-color, 60%);
+$anchor-color: #3b5998;
+$light-color: lighten($default-color, 5%);
+$lighter-color: lighten($default-color, 10%);
+$dark-color: darken($default-color, 20%);
+
+$error-color: #e51c23;
+$info-color: #41629b;
+$success-color: #10ba54;
+
+$gray:                   #666 !default;
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              #212121 !default;
+$gray-light:             #bbb !default;
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+// primary 2196F3 
+$brand-primary:         $gradient-highlight !default;
+$brand-success:         #4CAF50 !default;
+$brand-info:            #9C27B0 !default;
+$brand-warning:         #ff9800 !default;
+$brand-danger:          $gradient-highlight !default;
+
+// links
+$link-color: $gradient-midtone;
+// $category-color: $gradient-highlight;
+$category-color: lighten(blue, 20%);

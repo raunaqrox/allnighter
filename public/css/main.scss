@@ -1,0 +1,381 @@
+@import "color_variables.scss";
+@import "themes/united/variables";
+@import "vendors/bootstrap/bootstrap";
+@import "vendors/bootstrap-social";
+@import "vendors/font-awesome/font-awesome";
+@import "themes/united/styles";
+
+// Scaffolding
+// -------------------------
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 60px;
+  margin-bottom: 75px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+
+  p, ul {
+    margin-bottom: 0;
+  }
+}
+
+// Navbar
+// -------------------------
+
+.navbar-nav img {
+  width: 30px;
+  height: 30px;
+  margin: -15px 15px -15px;
+}
+
+// Alerts
+// -------------------------
+
+.alert {
+  margin-top: 10px;
+}
+
+// Thumbnails
+// -------------------------
+
+.thumbnail {
+  padding: 0;
+  border-radius: 0;
+  box-shadow: 0 0 5px #ccc, inset 0 0 0 #000;
+}
+
+// Font Icons
+// -------------------------
+
+.fa {
+  margin-right: 6px;
+}
+.tt-query, /* UPDATE: newer versions use tt-input instead of tt-query */
+
+.tt-menu { /* UPDATE: newer versions use tt-menu instead of tt-dropdown-menu */
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+    padding: 0px 20px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.tt-suggestion.tt-is-under-cursor { /* UPDATE: newer versions use .tt-suggestion.tt-cursor */
+    color: #fff;
+    background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+    margin: 0;
+}
+.twitter-typeahead,tt-menu { width: 100%; } 
+
+.newType{
+  display:none;
+}
+
+.hide{
+  display: none;
+  visibility: hidden;
+}
+
+#myCanvas {
+  width:100%;
+  border: 1px solid $gradient-midtone;
+  margin-top: 30px;
+}
+.paths-canvas {
+  width:100%;
+  border: 1px solid $gradient-midtone;
+  margin-top: 30px; 
+}
+.red-text{
+  color: #e51c23;
+}
+
+.editable{
+  display:none;
+  height:200px;
+  border: 1px solid $gradient-midtone;
+  outline:0px !important;
+  padding:20px;
+  -webkit-appearance:none;
+}
+
+.editableReply{
+  display:none;
+  margin-top:20px;
+  height:100px;
+  border: 1px solid $gradient-midtone;
+  outline:0px !important;
+  padding:20px;
+  -webkit-appearance:none; 
+}
+
+.comment{
+  padding: 20px;
+}
+
+.reply{
+  margin-left:50px;
+  border-left: 1px solid $gradient-midtone;
+  padding: 10px;
+}
+
+.replyButton{
+  margin: 0px 10px;
+}
+
+.showMore{
+  margin: 0px 10px;
+}
+
+
+// navbar transparent
+// .navbar-default, .navbar, .navbar-fixed-top, .navbar-nav, .nav {
+  
+// }
+
+.navbar-default .navbar-nav > li > a {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.navbar-transparent {
+  background: transparent;
+  box-shadow: none;
+}
+
+.navbar-transparent .navbar-nav > li > a {
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.nav-transparent {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.nav-transparent:before, .nav-transparent:after {
+  content: " ";
+  display: table;
+}
+
+.nav-transparent:after {
+  clear: both;
+}
+
+.nav-transparent > li {
+  position: relative;
+  display: block;
+}
+
+.nav-transparent > li > a {
+  position: relative;
+  display: block;
+  padding: 20.5px 20px;
+}
+
+.navbar-transparent > .container .navbar-brand {
+  color: $default-color;
+}
+
+.navbar-transparent .navbar-nav > li > a:hover, .navbar-transparent  .navbar-nav > li > a:focus {
+  color: white;
+  text-shadow: 0 0 2px $default-color;
+  transition: all 200ms ease-in;
+  text-decoration: none;
+}
+
+.nav-transparent > li > a:hover, .nav-transparent > li > a:focus, .nav-transparent > li > a:active {
+  color: white;
+  text-shadow: 0 0 2px $default-color;
+  transition: all 200ms ease-in;
+  background: transparent !important;
+}
+
+// temporary hack, maybe not :P
+.pace-done, .pace-running {
+  padding: 0;
+}
+
+.padded {
+  padding-top: 60px;
+}
+
+// category header
+
+.category-header {
+  padding-top: 12em;
+  background-image: url('../triangular.png');
+  position: relative;
+}
+
+.no-margin {
+  margin: 0;
+  padding: 0;
+  width:100%;
+}
+
+.gradient-mask {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient($gradient-shadow, $gradient-midtone, $gradient-highlight);
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  top: 0;
+  opacity: 0.65;
+}
+
+
+.catTitle {
+  font-size: 50px;
+  font-family: Oxygen;
+  font-weight: bold;
+  color: $light-color;
+}
+
+.catTitle ~ p {
+  font-size: 20px;
+  font-family: Oxygen;
+  color: $default-color;
+}
+
+.btn-transparent {
+  background: transparent;
+  box-shadow: none;
+  border: 1px solid white;
+  color: $light-color;
+}
+
+.btn-transparent:hover {
+  background: white;
+  border: 1px solid white;
+  color: $gradient-highlight;
+}
+
+.disabled-btn:hover {
+  background: transparent;
+  color: $light-color;
+}
+
+//search button fuck up on every page
+
+.search-button {
+  margin: 13px 0px;
+}
+
+
+//dropdown
+
+.downdrop-menu, .downdrop-divider {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.downdrop-menu {
+  margin-top: 10px !important;
+  background-color: $light-color;
+}
+
+.downdrop-menu:before {
+  content:"";
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-bottom-color: $light-color;
+  position: absolute;
+  top: -15px;
+  left: 20px;
+}
+
+.downdrop-menu > li {
+  height: 3.5em;
+  width: 100%;
+}
+
+.downdrop-menu > li > a  {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.downdrop-menu > li > a:hover {
+  background-color: $default-color;
+}
+
+// .downdrop-menu > .active > a, .downdrop-menu > .active > a:hover, .downdrop-menu > .active > a:focus {
+//   background-color: $gradient-midtone;
+// }
+
+// Alerts
+
+.closing-btn {
+  margin-top: -3px;
+}
+
+.alert-red {
+  background-color: $error-color;
+  border: 2px solid darken($error-color, 10%);
+  opacity: 0.85;
+}
+
+.alert-blue {
+  background-color: $info-color;
+  border: 2px solid darken($info-color, 10%);
+  opacity: 0.85;
+}
+
+.alert-green {
+  background-color: $success-color;
+  border: 2px solid darken($success-color, 10%);
+  opacity: 0.85;
+}
+
+// color scheme
+
+.link {
+  color: $link-color;
+  font-weight: 500;
+}
+
+.category-link {
+  color: $category-color;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  background-color: $gradient-highlight;
+  color: $lighter-color;
+}
+
+//spacing fixes
+
+.control-label {
+  text-align: right;
+}

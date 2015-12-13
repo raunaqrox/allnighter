@@ -1,0 +1,17 @@
+extends layout
+block content
+	.col-md-10.col-md-offset-1
+		.row.list-group-item
+			form(method="POST").col-md-6.col-md-offset-3
+				.form-group.col-md-9
+					input(type='hidden', name='_csrf', value=_csrf)
+					input(placeholder="search", type="text", name="catTitle", class="form-control tt-input category-search", autocomplete="off", spellcheck="false", dir="auto")
+				button(class="btn btn-default btn-danger col-md-3 search-button") Search
+		.row
+		if categories
+			each category in categories
+				.row.list-group-item.col-md-10.col-md-offset-1
+					a(href="/category/"+category.url)
+						=category.title
+					br
+					=category.description
