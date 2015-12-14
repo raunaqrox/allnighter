@@ -105,13 +105,13 @@ $(document).ready(function(){
     $(this).parent().remove();
     updatePrice();
   });
+
   $('.getFood').on('click', function(){
       sendData();
   });
     if(typeof(Storage) !== "undefined") {
       var items = JSON.parse(localStorage.getItem('items'));
       if(items){
-        console.log(items);
         for(var i = 0; i < items.length; i++){
           var item = items[i];
           showInCart(item.qty, item.name, item.price, item.id);

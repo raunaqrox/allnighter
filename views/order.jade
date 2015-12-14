@@ -1,5 +1,24 @@
 extends layout
 block content
-	each item in items
-		h1
-			=item.name
+	if items
+		- var total = 0;
+		each item in items
+			h3
+				=item.name
+			span
+				=item.price
+			- total += parseInt(item.qty)*parseInt(item.price)
+			span x
+			span 
+				=item.qty
+		h2 total #{total}
+		br
+		input(type="text", class="form-control", id="phone", name="phone", value=user.phone)
+		br
+		input(type="text", class="form-control", id="address", name="address", value=user.address)
+		br
+		a(href="/").btn.btn-danger Change Order
+		button.btn.btn-danger.confirm-order Confirm Order
+	else
+		h1 Nothing Selected
+		a(href="/").btn.btn-danger Back

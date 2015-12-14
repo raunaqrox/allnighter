@@ -135,6 +135,8 @@ app.get('/add-link', passportConf.isAuthenticated, addLinkController.getAddLink)
 app.post('/add-link', passportConf.isAuthenticated, addLinkController.postLink);
 app.post('/order', passportConf.isAuthenticated, orderController.takeOrder);
 app.get('/order', passportConf.isAuthenticated, orderController.getOrder);
+app.get('/sent', passportConf.isAuthenticated, orderController.sent);
+app.post('/send-order', passportConf.isAuthenticated, orderController.sendOrder);
 
 /**
  * OAuth authentication routes. (Sign in)
