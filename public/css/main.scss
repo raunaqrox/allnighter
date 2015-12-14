@@ -416,3 +416,22 @@ footer {
 .myCart{
   overflow: scroll;
 }
+
+.close-btn {
+  background: transparent;
+  outline: none;
+  border: none;
+}
+
+.left-padded {
+  margin-left: 33%;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-padded {
+  margin-top: 3vh;
+}
