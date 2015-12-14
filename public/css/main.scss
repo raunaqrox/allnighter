@@ -14,22 +14,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  padding-top: 60px;
-  margin-bottom: 75px;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 45px;
-  line-height: 45px;
-
-  p, ul {
-    margin-bottom: 0;
-  }
-}
 
 // Navbar
 // -------------------------
@@ -298,8 +282,7 @@ footer {
 }
 
 .downdrop-menu {
-  margin-top: 10px !important;
-  background-color: $light-color;
+  background-color: $lighter-color;
 }
 
 .downdrop-menu:before {
@@ -307,7 +290,7 @@ footer {
   width: 0;
   height: 0;
   border: 8px solid transparent;
-  border-bottom-color: $light-color;
+  border-bottom-color: $lighter-color;
   position: absolute;
   top: -15px;
   left: 20px;
@@ -413,8 +396,11 @@ footer {
 .pos-rel {
   position: relative !important;
 }
-.myCart{
+
+.cartItems{
   overflow: scroll;
+  max-height: 50vh !important;
+  height: auto;
 }
 
 .close-btn {
@@ -436,6 +422,47 @@ footer {
   margin-top: 3vh;
 }
 
+.margin-top-1 {
+  margin-top: 1vh;
+}
+
+.padded-top {
+  padding-top: 1vh;
+}
+
 .img-fixed-height > img {
   height: 13em !important;
+}
+
+.items-caption {
+  height: 4em !important;
+  font-size: 19px;
+  letter-spacing: 1px;
+  line-height: 1em;
+  margin-bottom: 0.35em;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main-body {
+  overflow: auto;
+  padding-bottom: 70px;
+}
+
+.footer {
+  position: relative;
+  margin-top: -50px;
+  margin-bottom: 0;
+  border-width: 1px 0 0;
+  height: 50px;
+  clear: both;
+  background-color: #f5f5f5;
+  border-color: #e3e3e3;
+}
+
+.items-price {
+  font-size: 14px;
+  font-weight:bold;
 }
