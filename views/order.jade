@@ -1,24 +1,48 @@
 extends layout
 block content
-	if items
-		- var total = 0;
-		each item in items
-			h3
-				=item.name
-			span
-				=item.price
-			- total += parseInt(item.qty)*parseInt(item.price)
-			span x
-			span 
-				=item.qty
-		h2 total #{total}
-		br
-		input(type="text", class="form-control", id="phone", name="phone", value=user.phone)
-		br
-		input(type="text", class="form-control", id="address", name="address", value=user.address)
-		br
-		a(href="/").btn.btn-danger Change Order
-		button.btn.btn-danger.confirm-order Confirm Order
-	else
-		h1 Nothing Selected
-		a(href="/").btn.btn-danger Back
+	.col-md-10.col-md-offset-1
+		.page-header
+			h3 Complete Order
+		if items
+			- var total = 0;
+			.well.col-md-offset-2.col-md-8
+				each item in items
+					.form-group.col-sm-offset-1
+						h3
+							=item.name
+							span  ✕ 
+							span
+								=item.qty
+						h4
+							span
+								=item.price
+							span  ✕
+							span  
+								=item.qty
+						- total += parseInt(item.qty)*parseInt(item.price)
+				br
+				h2.col-sm-offset-1 Your Total: #{total}
+			form.form-horizontal(id='order-form', method='POST')
+				input(type='hidden', name='_csrf', value=_csrf)
+				.form-group
+					label.col-sm-3.control-label Address
+					.col-sm-7
+						input(type="text", class="form-control", id="phone", name="phone", value=user.address, placeholder="Address", required)
+				.form-group
+					label.col-sm-3.control-label Phone number
+					.col-sm-7
+						input(type="text", class="form-control", id="phone", name="phone", value=user.phone, placeholder="Phone Number", required)
+				.form-group
+					.col-sm-offset-3.col-sm-7
+						a(href="/").btn.btn-danger.col-sm-3
+							i.fa.fa-user-check-square-o
+							| Change Order
+						button.btn.btn-success.col-sm-3.col-sm-offset-1.confirm-order
+							i.fa.fa-user-check-square-o
+							| Confirm Order
+		else
+			.form-group
+				h1 Nothing Selected
+				a(href="/").btn.btn-danger.col-sm-3
+					i.fa.fa-user-check-square-o
+					| Back

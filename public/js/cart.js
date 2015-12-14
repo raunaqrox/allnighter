@@ -24,8 +24,8 @@ function updateQty(qty, amt){
 
 function showInCart(qty, name, price, id){
   var myCart = $('.myCart');
-  var items = $('.myCart > .items');
-  var names = $('.myCart > .items .name');
+  var items = $('.myCart > .cartItems');
+  var names = $('.myCart > .cartItems .name');
   var toAppend = true;
   names.each(function(){
     if($(this).text() == name){
@@ -34,7 +34,7 @@ function showInCart(qty, name, price, id){
     }
   });
   if(toAppend){
-    items.append("<div class='well'><h3> " +name+ "<button class='remove close-btn pull-right'>✕</button></h3><h3 class='name hide' data-id='"+id+"'>"+name+"</h3><h4 class='inline-label'>Quantity : </h4><h4 class='qty inline-label'>"+qty+"</h4><br><h4 class='inline-label'>Price : </h4><h4 class='price inline-label'>"+price+"</h4><br><button class='add btn btn-primary'> + </button>&nbsp<button class='subtract btn btn-danger'> - </button></div>");
+    items.append("<div class='well'><h3 class='no-margin'> " +name+ "<button class='remove close-btn pull-right'>✕</button></h3><h3 class='name hide' data-id='"+id+"'>"+name+"</h3><br><h4 class='inline-label'>Price : </h4><h4 class='price inline-label'>"+price+"</h4><br><h4 class='inline-label'>Quantity : </h4><h4 class='qty inline-label'>"+qty+"</h4><br><button class='add btn btn-primary'> + </button>&nbsp<button class='subtract btn btn-danger'> - </button></div>");
     
     updatePrice();
   }
@@ -42,12 +42,17 @@ function showInCart(qty, name, price, id){
 
 function updatePrice(){
   var total = 0;
-  $('.myCart > .items > .well').each(function(){
+  $('.myCart > .cartItems > .well').each(function(){
     var qty = parseInt($(this).children('.qty').text() || 1);
     var cost = parseInt($(this).children('.price').text());
     total += qty*cost;
   });
-  $('.myCart > .total').html("Total : "+total);
+  if (total) {
+    $('.myCart > .total').html("Total : "+total);
+  } else {
+    $('.myCart > .total').html("Cart Empty");
+  }
+
 }
 
 
@@ -55,7 +60,7 @@ function sendData(){
   var postData = {};
   postData.items = [];
   var i = 0;
-  $('.myCart > .items > .well').each(function(){
+  $('.myCart > .cartItems > .well').each(function(){
     postData.items[i] = {};
     postData.items[i].name = $(this).children('.name').text();
     postData.items[i].qty = parseInt($(this).children('.qty').text());
@@ -88,7 +93,7 @@ $(document).ready(function(){
     }
   });
 
-  $('.myCart > .items').on('click', '.subtract', function(){
+  $('.myCart > .cartItems').on('click', '.subtract', function(){
     var qty = $(this).siblings('.qty');
     if(qty && (parseInt(qty.text()) > 1)){
       updateQty(qty, -1);
@@ -96,19 +101,28 @@ $(document).ready(function(){
     }
   });
 
-  $('.myCart > .items').on('click', '.add', function(){
+  $('.myCart > .cartItems').on('click', '.add', function(){
     var qty = $(this).siblings('.qty');
     updateQty(qty, 1);
   });
 
-  $('.myCart > .items').on('click', '.remove', function(){
-    $(this).parent().remove();
+  $('.myCart > .cartItems').on('click', '.remove', function(){
+    $(this).parent().parent().remove();
     updatePrice();
   });
 
   $('.getFood').on('click', function(){
-      sendData();
+    sendData();
   });
+
+  $('.clearCart').on('click', function(){
+    $('.cartItems').empty();
+    updatePrice();
+    if(typeof(Storage) !== "undefined") {
+      localStorage.setItem('items', null);
+    }
+  });
+
     if(typeof(Storage) !== "undefined") {
       var items = JSON.parse(localStorage.getItem('items'));
       if(items){
