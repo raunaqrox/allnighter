@@ -435,3 +435,7 @@ footer {
 .top-padded {
   margin-top: 3vh;
 }
+
+.img-fixed-height > img {
+  height: 13em !important;
+}
