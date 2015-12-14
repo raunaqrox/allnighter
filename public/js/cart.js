@@ -34,7 +34,7 @@ function showInCart(qty, name, price, id){
     }
   });
   if(toAppend){
-    items.append("<div class='well'><button class='remove btn btn-danger'>X</button></br><h5 class='name' data-id='"+id+"'>"+name+"</h5><h5>Quantity : </h5><h5 class='qty'>"+qty+"</h5><h5>Price : </h5><h5 class='price'>"+price+"</h5><button class='add btn btn-primary'> + </button>&nbsp<button class='subtract btn btn-danger'> - </button></div>");
+    items.append("<div class='well'><h3> " +name+ "<button class='remove close-btn pull-right'>✕</button></h3><h3 class='name hide' data-id='"+id+"'>"+name+"</h3><h4 class='inline-label'>Quantity : </h4><h4 class='qty inline-label'>"+qty+"</h4><br><h4 class='inline-label'>Price : </h4><h4 class='price inline-label'>"+price+"</h4><br><button class='add btn btn-primary'> + </button>&nbsp<button class='subtract btn btn-danger'> - </button></div>");
     
     updatePrice();
   }
