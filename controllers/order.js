@@ -4,7 +4,6 @@ var secrets = require('../config/secrets');
 exports.takeOrder = function(req, res){
 	var data = req.body;
 	req.session.items = data.items;
-	res.send(200);
 }
 
 exports.getOrder = function(req, res){
@@ -25,7 +24,7 @@ exports.sendOrder = function(req, res){
 	});
 	var mailOptions = {
 		from: 'Sahebjot Singh✔ <sahebjot94@gmail.com>',
-		to: 'bar@blurdybloop.com',
+		to: 'sahebjot94@gmail.com',
 		subject: 'Order ✔',
 		text: 'This is the order!',
 		html: '<h3>'+req.body.phone+'</h3><h3>'+req.body.address+'</h3><br><h3>'+JSON.stringify(req.session.items)+'</h3>' // html body
@@ -34,8 +33,7 @@ exports.sendOrder = function(req, res){
 		if(error){
 			return console.log(error);
 		}
-		console.log('Message sent: ' + info.response);
-		res.send(200);
+		res.sendStatus(200);
 	});
 }
 

@@ -22,12 +22,10 @@ block content
 						- total += parseInt(item.qty)*parseInt(item.price)
 				br
 				h2.col-sm-offset-1 Your Total: #{total}
-			form.form-horizontal(id='order-form', method='POST')
-				input(type='hidden', name='_csrf', value=_csrf)
 				.form-group
 					label.col-sm-3.control-label Address
 					.col-sm-7
-						input(type="text", class="form-control", id="phone", name="phone", value=user.address, placeholder="Address", required)
+						input(type="text", class="form-control", id="address", name="address", value=user.address, placeholder="Address", required)
 				.form-group
 					label.col-sm-3.control-label Phone number
 					.col-sm-7
