@@ -4,6 +4,7 @@ var secrets = require('../config/secrets');
 exports.takeOrder = function(req, res){
 	var data = req.body;
 	req.session.items = data.items;
+	res.sendStatus(200);
 }
 
 exports.getOrder = function(req, res){

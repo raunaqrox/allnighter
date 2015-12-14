@@ -22,6 +22,7 @@ block content
 						- total += parseInt(item.qty)*parseInt(item.price)
 				br
 				h2.col-sm-offset-1 Your Total: #{total}
+			.form-horizontal
 				.form-group
 					label.col-sm-3.control-label Address
 					.col-sm-7
@@ -32,15 +33,15 @@ block content
 						input(type="text", class="form-control", id="phone", name="phone", value=user.phone, placeholder="Phone Number", required)
 				.form-group
 					.col-sm-offset-3.col-sm-7
-						a(href="/").btn.btn-danger.col-sm-3
+						a(href="/").btn.btn-danger.col-sm-5.col-xs-12.margin-top-1
 							i.fa.fa-user-check-square-o
 							| Change Order
-						button.btn.btn-success.col-sm-3.col-sm-offset-1.confirm-order
+						button.btn.btn-success.col-sm-5.col-sm-offset-2.col-xs-12.margin-top-1.confirm-order
 							i.fa.fa-user-check-square-o
 							| Confirm Order
 		else
 			.form-group
 				h1 Nothing Selected
-				a(href="/").btn.btn-danger.col-sm-3
+				a(href="/").btn.btn-danger.col-sm-5
 					i.fa.fa-user-check-square-o
 					| Back

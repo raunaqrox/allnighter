@@ -68,15 +68,15 @@ function sendData(){
     postData.items[i].id = $(this).children('.name').data("id");
     i+=1;
   });
+
   if(typeof(Storage) !== "undefined") {
-    console.log(postData.items);
     localStorage.setItem('items', JSON.stringify(postData.items));
   }
-    ajax('post', '/order', postData, function(response){
-        if(response){
-          window.location = "/order";
-        }
-    });
+  ajax('post', '/order', postData, function(response){
+      if(response){
+        window.location = "/order";
+      }
+  });
 
 }
 
@@ -112,7 +112,11 @@ $(document).ready(function(){
   });
 
   $('.getFood').on('click', function(){
-    sendData();
+    var status = $(this).parent().children('.empty').text();
+    if(status!=="Cart Empty"){
+      $(this).html('<img src="/images/loading.gif" class="loading" />')
+      sendData(); 
+    }
   });
 
   $('.clearCart').on('click', function(){
