@@ -375,3 +375,41 @@ footer {
 .control-label {
   text-align: right;
 }
+
+.fixed-height {
+  max-height: 50%;
+  height: 50%;
+  overflow: hidden;
+}
+
+.inline-label {
+  display: inline;
+}
+
+.side-padded {
+  margin: 15px !important;
+}
+
+.grid-card {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: space-around !important;
+  align-items: stretch !important;
+}
+
+.cart-container {
+  position: fixed !important;
+  right: 5vw;
+  max-height: 80vh !important;
+  height: auto;
+}
+
+.float-bottom {
+  position: static !important;
+  bottom: 0 !important;
+}
+
+.pos-rel {
+  position: relative !important;
+}
