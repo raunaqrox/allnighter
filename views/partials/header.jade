@@ -11,17 +11,6 @@
       ul.nav.navbar-nav
         li
           a(href="/") Menu
-        if user
-          li.dropdown(class=title=='Add'?'active':undefined, title="Add")
-            a.dropdown-toggle(href='#', data-toggle='dropdown')
-              &nbsp;              
-              i.fa.fa-plus.fa-lg
-            ul.dropdown-menu.downdrop-menu
-              li(class=title=='AddLink'?'active':undefined)
-                a(href='/add-link') Add Link
-              li.divider.downdrop-divider
-              li(class=title=='AddCategory'?'active':undefined)
-                a(href='/add-category') Add Category
       ul.nav.navbar-nav.navbar-right
         if !user
           li(class=title=='Login'?'active':undefined)

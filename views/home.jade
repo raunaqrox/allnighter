@@ -1,7 +1,7 @@
 extends layout
 block content
   .container-fluid
-    .items.col-md-7.col-md-offset-1.col-sm-7.col-sm-offset-1
+    .items.col-md-7.col-md-offset-1.col-sm-10.col-sm-offset-1
       include partials/flash
       each cat in categories
         .well.row
@@ -10,7 +10,7 @@ block content
           .grid-card
             each item in items
               if item._category == cat.title
-                .col-md-3.col-sm-12.thumbnail.img-fixed-height.side-padded
+                .col-md-3.col-sm-12.col-xs-12.thumbnail.img-fixed-height.side-padded
                   img(src=item.imageUrl)
                   .caption
                     legend.name.items-caption(data-id=item.id)
@@ -22,7 +22,7 @@ block content
                     input(min="0", value='1', type="number", class="hide qty form-control", placeholder="quantity")
                     button.btn.btn-primary.form-control.cart Add to Card
 
-    .myCart.cart-container.col-md-3.col-md-offset-1.col-sm-3.col-sm-offset-1.well
+    .myCart.cart-container.col-md-3.col-md-offset-1.col-xs-10.col-xs-offset-1.well
       legend Cart
       button.getFood.btn.btn-success.col-md-5.col-sm-12.margin-top-1 Order Food
       button.clearCart.btn.btn-danger.col-md-5.col-md-offset-2.col-sm-12.margin-top-1 Clear Cart
