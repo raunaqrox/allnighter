@@ -32,6 +32,7 @@ var contactController = require('./controllers/contact');
 var addCategoryController = require('./controllers/addCategory');
 var addLinkController = require('./controllers/addLink');
 var cartController = require('./controllers/cart');
+var orderController = require('./controllers/order');
 
 /**
  * API keys and Passport configuration.
@@ -132,6 +133,8 @@ app.get('/add-category', passportConf.isAuthenticated, addCategoryController.get
 app.post('/add-category', passportConf.isAuthenticated, addCategoryController.postCategory);
 app.get('/add-link', passportConf.isAuthenticated, addLinkController.getAddLink);
 app.post('/add-link', passportConf.isAuthenticated, addLinkController.postLink);
+app.post('/order', passportConf.isAuthenticated, orderController.takeOrder);
+app.get('/order', passportConf.isAuthenticated, orderController.getOrder);
 
 /**
  * OAuth authentication routes. (Sign in)

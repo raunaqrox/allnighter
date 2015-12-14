@@ -12,7 +12,7 @@ block content
                 .col-md-3.thumbnail.side-padded
                   img(src=item.imageUrl)
                   .caption
-                    legend.name
+                    legend.name(data-id=item.id)
                       =item.title
                     h4.inline-label Price:&nbsp&nbsp&nbsp
                     h4.inline-label Rs. 
