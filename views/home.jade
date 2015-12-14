@@ -6,11 +6,22 @@ block content
         .well.row
           legend
             =cat.title
-          each item in items
-            if item._category == cat.title
-              .grid-card
-                .col-lg-3.col-md-3.col-xs-6.thumbnail.padded
+          .grid-card
+            each item in items
+              if item._category == cat.title
+                .col-md-3.thumbnail.side-padded
                   img(src=item.imageUrl)
                   .caption
                     legend.name
                       =item.title
+                    h4.inline-label Price:&nbsp&nbsp&nbsp
+                    h4.inline-label Rs. 
+                    h4.inline-label.price 32
+                    button.btn.btn-danger.form-control.cart Add to Card
+
+    .myCart.cart-container.col-md-3.col-md-offset-1.well
+      legend Cart
+        .items
+        h3.total Cart Empty
+        button.getFood.btn.btn-primary Order Food
+
