@@ -26,11 +26,10 @@ exports.postLink = function(req, res, next){
 		if(cat){
 			var newLink = new Link(req.body);
 			newLink._categoryId = cat._id;
-			newLink._category = cat.title;
-			newLink.type = req.body.type;
+			newLink._category = cat.title;			
 			newLink.save(function(err, result){
 				if(err){
-					if(err.code!==11000){
+					if(err.code !== 11000){
 						 return console.error(err);
 					}else{
 						req.flash('errors', { msg: newLink.title + 'has already been added to skile!' });

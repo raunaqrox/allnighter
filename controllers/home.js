@@ -13,6 +13,7 @@ exports.index = function(req, res) {
 			return console.error(err);
 		}else{
 			Link.find({}).sort({'addedOn': -1}).exec(function(err, links){
+				req.session.items = null;
 				if(err)return console.error(err);
 				res.render('home', {
 					title: 'Home',

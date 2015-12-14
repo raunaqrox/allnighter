@@ -22,13 +22,13 @@ function updateQty(qty, amt){
   }
 }
 
-function showInCart(qty,name,price){
+function showInCart(qty, name, price){
   var myCart = $('.myCart');
   var items = $('.myCart > .items');
   var names = $('.myCart > .items .name');
   var toAppend = true;
   names.each(function(){
-    if($(this).text() == response.name){
+    if($(this).text() == name){
       updateQty($(this).siblings('.qty'), qty);
       toAppend = false;
     }
@@ -69,33 +69,16 @@ function sendData(){
 
 }
 
-
-function addItem(quantity, name, price, remove, append){
-  ajax('post', '/', {"quantity":quantity, "ItemName":name, "price":price, "remove": false}, function(response){
-    if(append){
-      showInCart(response);
-    }else{
-
-    }
-  });
-}
-
-
-function removeItem(quantity, name, price, remove){
-  ajax('post', '/', {"quantity":quantity, "ItemName":name, "price":price, "remove": true}, function(response){
-    showInCart(response);
-  });
-}
-
 $(document).ready(function(){
   var addToCart = $('.cart');
 
   addToCart.on("click", function(e){
-    var getFood = $('.getFood');
-    var quantity = 1;
+    var quantity = $(this).parents('.caption').children('.qty').val();;
     var name = $(this).parents('.caption').children('.name').text();
     var price = $(this).parents(".caption").children(".price").text();
-    addItem(quantity, name, price, false, true);
+    if(quantity && name && price){
+      showInCart(quantity, name, price);
+    }
   });
 
   $('.myCart > .items').on('click', '.subtract', function(){

@@ -8,7 +8,8 @@ var itemSchema = new Schema({
   available: Boolean,
   _categoryId: ObjectId,
   _category: String,
-  imageUrl: String
+  imageUrl: String,
+  price: String
 });
 
 itemSchema.index({ title : 3, description : 2});

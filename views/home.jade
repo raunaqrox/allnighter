@@ -16,12 +16,14 @@ block content
                       =item.title
                     h4.inline-label Price:&nbsp&nbsp&nbsp
                     h4.inline-label Rs. 
-                    h4.inline-label.price 32
+                    h4.inline-label.price
+                      =item.price
+                    input(min="0", type="number", class="qty form-control", placeholder="quantity")
                     button.btn.btn-danger.form-control.cart Add to Card
 
     .myCart.cart-container.col-md-3.col-md-offset-1.well
       legend Cart
-        .items
-        h3.total Cart Empty
-        button.getFood.btn.btn-primary Order Food
+      .items
+      h3.total Cart Empty
+      button.getFood.btn.btn-primary Order Food
 
