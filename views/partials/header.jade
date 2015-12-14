@@ -9,6 +9,8 @@
       a.navbar-brand(href='/') Allnighter
     .collapse.navbar-collapse.nav-fixed-top.navbar-default
       ul.nav.navbar-nav
+        li
+          a(href="/") Menu
         if user
           li.dropdown(class=title=='Add'?'active':undefined, title="Add")
             a.dropdown-toggle(href='#', data-toggle='dropdown')

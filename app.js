@@ -137,6 +137,7 @@ app.post('/order', passportConf.isAuthenticated, orderController.takeOrder);
 app.get('/order', passportConf.isAuthenticated, orderController.getOrder);
 app.get('/sent', passportConf.isAuthenticated, orderController.sent);
 app.post('/send-order', passportConf.isAuthenticated, orderController.sendOrder);
+app.get('/terms', function(req, res){res.render('terms')});
 
 /**
  * OAuth authentication routes. (Sign in)
