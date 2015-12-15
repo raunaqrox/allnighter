@@ -1,5 +1,6 @@
 var nodemailer = require('nodemailer');
 var secrets = require('../config/secrets');
+var mg = require('nodemailer-mailgun-transport');
 
 exports.takeOrder = function(req, res){
 	var data = req.body;
@@ -14,6 +15,13 @@ exports.getOrder = function(req, res){
 }
 
 exports.sendOrder = function(req, res){
+	var auth = {
+	  auth: {
+	    api_key: secrets.mailgun.key,
+	    domain: 'allnighter.in'
+	  }
+	}
+	/*
 	var transporter = nodemailer.createTransport({
 	    service: 'Gmail',
 	    host: 'smtp.gmail.com',
@@ -22,15 +30,17 @@ exports.sendOrder = function(req, res){
 	        user: secrets.gmail.user,
 	        pass: secrets.gmail.pass
 	    }
-	});
+	});*/
+	
+	var nodemailerMailgun = nodemailer.createTransport(mg(auth));
 	var mailOptions = {
-		from: 'Sahebjot Singh✔ <sahebjot94@gmail.com>',
-		to: 'sahebjot94@gmail.com',
+		from: 'Sahebjot Singh✔ <allnighterrestaurant1@gmail.com>',
+		to: 'allnighterrestaurant1@gmail.com',
 		subject: 'Order ✔',
 		text: 'This is the order!',
 		html: '<h3>'+req.body.phone+'</h3><h3>'+req.body.address+'</h3><br><h3>'+JSON.stringify(req.session.items)+'</h3>' // html body
 	}
-	transporter.sendMail(mailOptions, function(error, info){
+	nodemailerMailgun.sendMail(mailOptions, function(error, info){
 		if(error){
 			return console.log(error);
 		}
