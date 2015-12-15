@@ -81,7 +81,8 @@ function sendData(){
 }
 
 $(document).ready(function(){
-  var addToCart = $('.cart');
+  var addToCart = $('.cart'),
+      filter = $('.filter');
 
   addToCart.on("click", function(e){
     var quantity = $(this).parents('.caption').children('.qty').val();;
@@ -92,6 +93,17 @@ $(document).ready(function(){
       showInCart(quantity, name, price, id);
     }
   });
+
+  $('.filter').on('change', function(){
+    var selected = "well cat row " +  $(this).val();
+    $('.cat').each(function(){
+      if($(this).attr("class") != selected){
+        $(this).css("display",'none');
+      }else{
+        $(this).css("display",'block');
+      }
+    });
+  })
 
   $('.myCart > .cartItems').on('click', '.subtract', function(){
     var qty = $(this).siblings('.qty');

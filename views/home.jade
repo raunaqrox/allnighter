@@ -3,8 +3,12 @@ block content
   .container-fluid
     .items.col-md-7.col-md-offset-1.col-sm-10.col-sm-offset-1
       include partials/flash
+      select.filter
+        each cat in categories
+          option(value="#{cat.title}")
+              =cat.title
       each cat in categories
-        .well.row
+        .well.cat.row(class="#{cat.title}")
           legend
             =cat.title
           .grid-card
