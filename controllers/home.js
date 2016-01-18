@@ -1,6 +1,5 @@
 var Category = require('../models/Category.js');
-var Link = require('../models/Item.js');
-var Path =  require('../models/Path.js');
+var Item = require('../models/Item.js');
 
 /**
  * GET /
@@ -12,13 +11,13 @@ exports.index = function(req, res) {
 		if(err){
 			return console.error(err);
 		}else{
-			Link.find({}).sort({'addedOn': -1}).exec(function(err, links){
+			Item.find({}).sort({'addedOn': -1}).exec(function(err, items){
 				req.session.items = null;
 				if(err)return console.error(err);
 				res.render('home', {
 					title: 'Home',
 					categories: cats,
-					items: links,
+					items: items,
 				});
 			});			
 		}

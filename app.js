@@ -27,10 +27,8 @@ var sass = require('node-sass-middleware');
  * Controllers (route handlers).
  */
 var homeController = require('./controllers/home');
-var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
-var addCategoryController = require('./controllers/addCategory');
-var addLinkController = require('./controllers/addLink');
+var userController = require('./controllers/user');
 var cartController = require('./controllers/cart');
 var orderController = require('./controllers/order');
 
@@ -129,10 +127,6 @@ app.post('/account/password', passportConf.isAuthenticated, userController.postU
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 app.get('/cart', passportConf.isAuthenticated, cartController.showCart);
-app.get('/add-category', passportConf.isAuthenticated, addCategoryController.getAddCategory);
-app.post('/add-category', passportConf.isAuthenticated, addCategoryController.postCategory);
-app.get('/add-link', passportConf.isAuthenticated, addLinkController.getAddLink);
-app.post('/add-link', passportConf.isAuthenticated, addLinkController.postLink);
 app.post('/order', passportConf.isAuthenticated, orderController.takeOrder);
 app.get('/order', passportConf.isAuthenticated, orderController.getOrder);
 app.get('/sent', passportConf.isAuthenticated, orderController.sent);

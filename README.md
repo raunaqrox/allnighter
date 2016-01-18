@@ -1,2 +1,3 @@
-## Skile
- - Where learning begins
+## Install
+ - `npm i`
+ - `npm start`
